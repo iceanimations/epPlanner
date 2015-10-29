@@ -19,6 +19,7 @@ import cui
 import appUsageApp
 import re
 import os
+import appUsageApp
 
 rootPath = qutil.dirname(__file__, 2)
 uiPath = osp.join(rootPath, 'ui')
@@ -39,6 +40,8 @@ class UI(Form, Base):
         self.browseButton.clicked.connect(self.setEpPath)
         self.populateButton.clicked.connect(self.populate)
         self.projectBox.currentIndexChanged[str].connect(self.setProject)
+        
+        appUsageApp.updateDatabase('epPlanner')
         
     def showMessage(self, **kwargs):
         return cui.showMessage(self, title=self.title, **kwargs)
@@ -107,6 +110,10 @@ class UI(Form, Base):
         return rnge
 
     def populate(self):
+        if not os.environ['USERNAME'] in ['qurban.ali', 'sarmad.mushtaq', 'mohammad.bilal', 'talha.ahmed', 'sadaf.akram']:
+            self.showMessage(msg='You don\'t have permissions to perform this action',
+                             icon=QMessageBox.Information)
+            return
         path = self.epPath()
         if not path: return
         ep = self.getEpisode()
