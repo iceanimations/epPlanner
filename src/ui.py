@@ -147,5 +147,5 @@ class UI(Form, Base):
                              icon=QMessageBox.Critical,
                              details=qutil.dictionaryToDetails(errors))
         else:
-            self.showMessage(msg='Episode popualted successfully',
+            self.showMessage(msg='Episode populated successfully',
                              icon=QMessageBox.Information)
