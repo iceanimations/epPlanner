@@ -104,8 +104,12 @@ class UI(Form, Base):
         animaticPath = osp.join(shotPath, 'animatic')
         if osp.exists(animaticPath):
             files = os.listdir(animaticPath)
+            fr = []
             if files:
-                fr = [int(ph.split('.')[1]) for ph in files]
+                for ph in files:
+                    try:
+                        fr.append(int(ph.split('.')[1]))
+                    except: pass
                 rnge = (min(fr), max(fr))
         return rnge
 
