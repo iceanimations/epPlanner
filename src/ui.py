@@ -12,7 +12,7 @@ except:
     from PyQt4 import uic
 from PyQt4.QtGui import QMessageBox, QFileDialog, qApp
 import os.path as osp
-import qutil
+import iutil
 import utilities as utils
 reload(utils)
 import cui
@@ -21,7 +21,7 @@ import re
 import os
 import appUsageApp
 
-rootPath = qutil.dirname(__file__, 2)
+rootPath = iutil.dirname(__file__, 2)
 uiPath = osp.join(rootPath, 'ui')
 
 Form, Base = uic.loadUiType(osp.join(uiPath, 'main.ui'))
@@ -68,7 +68,7 @@ class UI(Form, Base):
             self.populateEpisodes()
             if errors:
                 self.showMessage(msg='Error occurred while configuring the TACTIC',
-                                 details=qutil.dictionaryToDetails(errors),
+                                 details=iutil.dictionaryToDetails(errors),
                                  icon=QMessageBox.Critical)
     
     def populateProjectBox(self):
@@ -79,7 +79,7 @@ class UI(Form, Base):
             self.projectBox.addItems(projects)
         if errors:
             self.showMessage(msg='Error occurred while fetching the list of Projects from TACTIC',
-                             details=qutil.dictionaryToDetails(errors),
+                             details=iutil.dictionaryToDetails(errors),
                              icon=QMessageBox.Critical)
             
     def populateEpisodes(self):
@@ -88,7 +88,7 @@ class UI(Form, Base):
             self.epBox.addItems(eps)
         if errors:
             self.showMessage(msg='Error occurred while fetching the list of Episodes from TACTIC',
-                             details=qutil.dictionaryToDetails(errors),
+                             details=iutil.dictionaryToDetails(errors),
                              icon=QMessageBox.Critical)
             
     def getEpisode(self):
@@ -145,7 +145,7 @@ class UI(Form, Base):
         if errors:
             self.showMessage(msg='Errors occurred while populating Sequences and shots',
                              icon=QMessageBox.Critical,
-                             details=qutil.dictionaryToDetails(errors))
+                             details=iutil.dictionaryToDetails(errors))
         else:
             self.showMessage(msg='Episode populated successfully',
                              icon=QMessageBox.Information)
