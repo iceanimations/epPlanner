@@ -100,7 +100,7 @@ def addShots(ep, shots):
         tempShots = [shot for shot in shots if '_'.join([ep, shot]).upper() not in existingShot]
         for shot in shots.keys():
             if shot not in tempShots:
-                shots.remove(shot)
+                shots.pop(shot, None)
     if server:
         data = [{'sequence_code': '_'.join([ep, shot.split('_')[0]]).upper(), 'code': '_'.join([ep, shot]).upper(),
                  'frame_in': fr[0], 'frame_out': fr[1], 'tc_frame_start': fr[0], 'tc_frame_end': fr[1]} for shot, fr in shots.items()]
