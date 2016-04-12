@@ -15,7 +15,7 @@ def setServer():
     errors = {}
     global server
     try:
-        server = tcl.TacticServerStub(server='dbserver', login='tactic',
+        server = tcl.TacticServerStub(server='tacticvm', login='tactic',
                                       password='tactic123',
                                       project='test_mansour_ep')
     except Exception as ex:
