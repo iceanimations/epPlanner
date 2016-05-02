@@ -7,7 +7,7 @@ import sip
 sip.setapi('QString', 2)
 import sys
 sys.path.append('R:/Python_Scripts/plugins/utilities')
-sys.path.append('R:/Pipe_Repo/Projects/TACTIC')
+sys.path.append('R:/Python_Scripts/plugins')
 from src import ui
 from PyQt4.QtGui import QApplication, QStyleFactory
 
