@@ -5,9 +5,7 @@ Created on Oct 29, 2015
 '''
 import sys
 sys.path.append("R:/Pipe_Repo/Projects/TACTIC")
-import tactic_client_lib as tcl
-import os
-import iutil.symlinks as symlinks
+from auth import user
 
 server = None
 
@@ -15,9 +13,9 @@ def setServer():
     errors = {}
     global server
     try:
-        server = tcl.TacticServerStub(server='tacticvm', login='tactic',
-                                      password='tactic123',
-                                      project='test_mansour_ep')
+        user.login('tactic', 'tactic123')
+        server = user.get_server()
+        server.set_project('test_mansour_ep')
     except Exception as ex:
         errors['Could not connect to TACTIC'] = str(ex)
     return errors
