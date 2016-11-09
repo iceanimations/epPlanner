@@ -67,7 +67,7 @@ class UI(Form, Base):
             errors = utils.setProject(project)
             self.populateEpisodes()
             if errors:
-                self.showMessage(msg='Error occurred while configuring the TACTIC',
+                self.showMessage(msg='Error \'don\'t while configuring the TACTIC',
                                  details=iutil.dictionaryToDetails(errors),
                                  icon=QMessageBox.Critical)
     
@@ -114,9 +114,11 @@ class UI(Form, Base):
         return rnge
 
     def populate(self):
-        if not os.environ['USERNAME'] in ['qurban.ali', 'sarmad.mushtaq', 'mohammad.bilal', 'talha.ahmed', 'assad.siddiqui']:
-            self.showMessage(msg='You don\'t have permissions to perform this action',
-                             icon=QMessageBox.Information)
+        if not os.environ['USERNAME'] in ['qurban.ali', 'sarmad.mushtaq',
+                'mohammad.bilal', 'talha.ahmed', 'shahmeen.mehboob']:
+            self.showMessage(
+                    msg="You don\'t have permissions to perform this action",
+                    icon=QMessageBox.Information)
             return
         path = self.epPath()
         if not path: return
@@ -149,3 +151,4 @@ class UI(Form, Base):
         else:
             self.showMessage(msg='Episode populated successfully',
                              icon=QMessageBox.Information)
+
