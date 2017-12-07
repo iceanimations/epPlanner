@@ -114,7 +114,7 @@ class UI(Form, Base):
         return rnge
 
     def populate(self):
-        if not os.environ['USERNAME'] in ['qurban.ali', 'sarmad.mushtaq', 'mohammad.bilal', 'talha.ahmed', 'assad.siddiqui']:
+        if not os.environ['USERNAME'] in ['qurban.ali', 'sarmad.mushtaq', 'mohammad.bilal', 'talha.ahmed', 'assad.siddiqui', 'salman.rauf']:
             self.showMessage(msg='You don\'t have permissions to perform this action',
                              icon=QMessageBox.Information)
             return
