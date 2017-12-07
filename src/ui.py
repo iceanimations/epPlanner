@@ -25,7 +25,7 @@ rootPath = iutil.dirname(__file__, 2)
 uiPath = osp.join(rootPath, 'ui')
 
 USERS = ['qurban.ali', 'sarmad.mushtaq', 'mohammad.bilal', 'talha.ahmed',
-         'taimour.khalid', 'assad.siddiqui']
+         'taimour.khalid', 'assad.siddiqui', 'salman.rauf']
 
 
 Form, Base = uic.loadUiType(osp.join(uiPath, 'main.ui'))
